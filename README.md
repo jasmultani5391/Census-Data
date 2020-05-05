@@ -22,16 +22,19 @@ I have compiled each phase of building the algorithm, from preprocessing to anal
 ## Package manager:
 <a href="https://repo.anaconda.com/">Anaconda</a> with the following <a href="https://www.youtube.com/watch?v=5mDYijMfSzs&t=255s">download tutorial.</a>
 
-## IDE
+## IDE:
 <a href="https://jupyter.org/about">Jupyter Notebook</a>, which is downloaded when Anaconda is downloaded.
 
-## Dataset downloaded from
+## Dataset downloaded from:
 <a href="https://archive.ics.uci.edu/ml/datasets/census+income">UCI Machine Learning Repository</a>
 
-## Algorithms
+## Algorithms:
  <ul style="list-style-type:disc">
          <li><a href="https://en.wikipedia.org/wiki/K-nearest_neighbors_algorithm">K Nearest Classifier</a></li>
          <li><a href="https://en.wikipedia.org/wiki/Random_forest">Decision Forest Classifier</a></li>
          <li><a href="https://en.wikipedia.org/wiki/Logistic_regression">Logistic Regression Classifier</a></li>
       </ul>
+      
+## License:
+MIT
       
