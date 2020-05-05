@@ -1,5 +1,4 @@
-# Project Title:
-Predicting Salary Range
+# Census-Data: Predicting Salary Range
 
 ## Motivation:
 The goal of this supervised machine learning algorithm is to decide which socioeconomic factors will reliably predict whether an individual makes less than or more than $50,000 yearly. The dataset being used is found on UCI’s machine learning repository and was collected in 1994.
