@@ -10,13 +10,13 @@ For context, $50,000 in 1994 is the rough equivalent to $87,000 in 2020. Calcula
 I have compiled each phase of building the algorithm, from preprocessing to analysis, into this one file. Annotation on steps are as following, and can be found embedded within the code:
 
  <ul style="list-style-type:disc">
-         <li>Step 1: Data introduction</li>
-         <li>Step 2: Data clean-up</li>
-         <li>Step 3: Creating dataframes by varying features</li>
-         <li>Step 4: Exploring data visually</li>
-         <li>Step 5: Training labeled data on K Nearest Classifier</li>
-         <li>Step 6: Training labeled data on Decision Forest Classifier</li>
-         <li>Step 7: Training labeled data on Logistic Regression Classifier</li>
+ <li><b>Step 1:</b> Data introduction</li>
+         <li><b>Step 2:</b> Data clean-up</li>
+         <li><b>Step 3:</b> Creating dataframes by varying features</li>
+         <li><b>Step 4:</b> Exploring data visually</li>
+         <li><b>Step 5:</b> Training labeled data on K Nearest Classifier</li>
+         <li><b>Step 6:</b> Training labeled data on Decision Forest Classifier</li>
+         <li><b>Step 7:</b> Training labeled data on Logistic Regression Classifier</li>
       </ul>
       
 ## Code Style
@@ -30,6 +30,25 @@ I have compiled each phase of building the algorithm, from preprocessing to anal
 
 ## Dataset downloaded from
 <a href="https://archive.ics.uci.edu/ml/datasets/census+income">UCI Machine Learning Repository</a>
+
+## Feature engineering from dataset
+
+<ul style="list-style-type:disc">
+         <li>Age</li>
+         <li>Workclass</li>
+         <li>Education</li>
+         <li>Education Number (numerical ranking of education)
+         </li>
+         <li>Marital Status</li>
+         <li>Occupation</li>
+         <li>Relationship</li>
+         <li>Race</li>
+         <li>Sex</li>
+         <li>Capital Gain</li>
+         <li>Capital Loss</li>
+         <li>Country of Origin</li>
+         <li>Salary Label</li>
+      </ul>
 
 ## Algorithms
  <ul style="list-style-type:disc">
