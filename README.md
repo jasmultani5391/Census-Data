@@ -3,7 +3,7 @@
 ## Motivation
 The goal of this supervised machine learning algorithm is to decide which socioeconomic factors will reliably predict whether an individual makes less than or more than $50,000 yearly. The dataset being used is found on UCI’s machine learning repository and was collected in 1994.
 
-For context, $50,000 in 1994 is the rough equivalent to $87,000 in 2020. Calculations made on this 
+For context, $50,000 in 1994 is the rough equivalent of $87,000 in 2020. Calculations made on this 
 <a href="https://www.in2013dollars.com/us/inflation/1994?amount=50000">website</a>.
 
 ## What to expect when opening the file
