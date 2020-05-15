@@ -32,7 +32,6 @@ I have compiled each phase of building the algorithm, from preprocessing to anal
 <a href="https://archive.ics.uci.edu/ml/datasets/census+income">UCI Machine Learning Repository</a>
 
 ## Feature engineering from dataset
-
 <ul style="list-style-type:disc">
          <li>Age</li>
          <li>Workclass</li>
@@ -50,13 +49,50 @@ I have compiled each phase of building the algorithm, from preprocessing to anal
          <li>Salary Label</li>
       </ul>
 
+## Preprocessing Visualization
+From the initial correlation heatmap below, we understand that "educationnum" has the highest correlation with the salary label amongst the given features. We should be mindful that the absolute value of this correlation (.33) isn't so convincing that we'll find a strong correlation. For now, we should rely on "educationnum" as the guiding feature for our initial visualization. 
+![](census1994_images/initial_corr_heat.png)
+
+With these next two pie graphs, we can better understand the relative distribution of education level contributing to the overall database.
+
+![](census1994_images/edulvl_total_pie.png)
+
+Since we'll be using the salary range as our label, we have to split up our knowledge based on who makes above 50k (our '1' label) and who makes below 50k ('0' label). To better understand how education level can effect salary prediction, I created the next two pie charts: (1) education level of people who make ABOVE 50k, (2) education level of people who make BELOW 50K salary. At first glance, we see that those who fall in the "bachelor's", "high school grads", and "some college" dominate the pool of the census that make above 50K.
+
+![](census1994_images/edulvl_abvsalary_pie.png)
+
+![](census1994_images/edulvl_blwsalary_pie.png)
+
+The following scatterplot reveals that a general cutoff of education level to make above 50K is those who pass the 12th grade (or "8" as seen on the graph's y-axis). Breakdown of the education level from quantitative to qualitiative is also as follows: 1 - preschool, 2 - 1st-4th, 3 - 5th-6th, 4 - 7th-8th, 5 - 9th, 6 - 10th, 7 - 11th, 8 - 12th, 9 - HS grad, 10 - Some-college, 11 - Associates-vocational, 12 - Assoc-academic, 13 - Bachelors, 14 - Masters, 15 - Professional school, 16 - Doctorate. 
+
+![](census1994_images/educationnum_vs_age_vs_salary_scatterI.png)
+
+The initial correlation heatmap reveals that age is the next strongest feature, after education level, to predict salary label. As expected, younger kids who are in their teens are likely to make less than 50K. Could be due to education level, or the amount of hours they're legally allowed to commit to.
+
+![](census1994_images/Age_vs_Salary_scatter.png)
+
+The next logical step was to combine how both age and hours per week worked can predict the salary label. It's interesting to see how a person can work an upwards of 60+ hours per week and not make it to the >50k yearly salary. In the other group, it looks like the horus are clustered between 35 and 65 hours per week. This could indicate that we eventually need a closer look into the occuption sector for each group.
+
+![](census1994_images/Hrs_vs_Salary_scatterII.png)
+
+
+
 ## Algorithms
- <ul style="list-style-type:disc">
-         <li><a href="https://en.wikipedia.org/wiki/K-nearest_neighbors_algorithm">K Nearest Classifier</a></li>
-         <li><a href="https://en.wikipedia.org/wiki/Random_forest">Decision Forest Classifier</a></li>
-         <li><a href="https://en.wikipedia.org/wiki/Logistic_regression">Logistic Regression Classifier</a></li>
-      </ul>
-      
+<ol>
+    <li><a href="https://en.wikipedia.org/wiki/K-nearest_neighbors_algorithm">K Nearest Classifier</a>
+        <ul>
+            <li> We found that 13 was the best K for our dataset to use for the K Nearest Neighbors Algorithm. 
+             <img src="census1994_images/bestK_lineplot.png" width="200">
+            </li>
+        </ul>
+    </li>
+    <li><a href="https://en.wikipedia.org/wiki/Random_forest">Decision Forest Classifier</a></li>
+    <li><a href="https://en.wikipedia.org/wiki/Logistic_regression">Logistic Regression Classifier</a></li>
+</ol>
+
+## Results
+
+
 ## License
 MIT
       
