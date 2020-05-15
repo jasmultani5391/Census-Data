@@ -7,7 +7,7 @@ For context, $50,000 in 1994 is the rough equivalent of $87,000 in 2020. Calcula
 <a href="https://www.in2013dollars.com/us/inflation/1994?amount=50000">website</a>.
 
 ## What to expect when opening the file
-I have compiled each phase of building the algorithm, from preprocessing to analysis, into this one file. Annotation on steps are as following, and can be found embedded within the code:
+I have compiled each phase of building the algorithm, from preprocessing to analysis, into this one file:
 
  <ul style="list-style-type:disc">
  <li><b>Step 1:</b> Data introduction</li>
@@ -51,6 +51,7 @@ I have compiled each phase of building the algorithm, from preprocessing to anal
 
 ## Preprocessing Visualization
 From the initial correlation heatmap below, we understand that "educationnum" has the highest correlation with the salary label amongst the given features. We should be mindful that the absolute value of this correlation (.33) isn't so convincing that we'll find a strong correlation. For now, we should rely on "educationnum" as the guiding feature for our initial visualization. 
+
 ![](census1994_images/initial_corr_heat.png)
 
 With these next two pie graphs, we can better understand the relative distribution of education level contributing to the overall database.
