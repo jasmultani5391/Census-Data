@@ -101,8 +101,6 @@ The next logical step was to combine how both age and hours per week worked can 
      </li>
 </ol>
 
-## Results
-
 ## Troubleshooting
 
 For the future:
