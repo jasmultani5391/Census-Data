@@ -106,11 +106,11 @@ class QualToQuant():
 class FilterGroups():
     # Organizing columns once one-hot encoding is done.
     
-    '''This task is to filter the final correlation dicitionary
-    into groups--specifically for the originally qualitative
-    columns that I applied one-hot encoding for.
-    '''
     def make_corr_groups(self, dictionary):
+        '''This task is to filter the final correlation dicitionary
+        into groups--specifically for the originally qualitative
+        columns that I applied one-hot encoding for.
+        '''
         maritalstatus_corr = {}
         relationship_corr = {}
         occupation_corr = {}
@@ -127,14 +127,16 @@ class FilterGroups():
                 workclass_corr[key] = value
             if 'race_' in key:
                 race_corr[key] = value
-        return maritalstatus_corr, relationship_corr,             occupation_corr, workclass_corr,             race_corr
-
-    '''I noticed that after the one-hot encoding, the column
-    names get really long and look annoying. So, with this
-    function, I'll be able to split the names from "_ " and
-    only use the description of the column group as new name.
-    '''
+        return (maritalstatus_corr, relationship_corr,
+                occupation_corr, workclass_corr,
+                race_corr)
+    
     def separate_onehot(self, to_convert):
+        '''I noticed that after the one-hot encoding, the column
+        names get really long and look annoying. So, with this
+        function, I'll be able to split the names from "_ " and
+        only use the description of the column group as new name.
+        '''
         desc_list = []
         for i in to_convert:
             if "_ " in i:
@@ -147,11 +149,8 @@ class FilterGroups():
 
     
 class NearestK():
-    ''' The following method is to train the labeled data set 'i' number
-    oftimes and to make a large dictionary where 'i' is the key, and
-    accuracy of the classifier is the value. This will allow us to
-    find the best K to use in our KNeighborsClassifier.
-    '''
+    # Calculate best K for KNeighborsClassifier. Set iteration out of 100.
+    
     def bestK(self, train_data,
               test_data, train_label,
               test_label):
@@ -165,14 +164,11 @@ class NearestK():
         return k_dictionary
 
 
-# In[2]:
-
-
 ####################### STEP 1: DATA INTRODUCTION ######################
 
 # Pull up the data from UCI Machine Learning Repository and set it up as
-# a dataframe using pandas. I then want to use .describe() to get a
-# first glance of any correlations that may pop up.
+# a dataframe using pandas. 
+
 path = r'C:\Users\Jasmine\Desktop\Database\US Census 1994\rawdatatest.txt'
 df1 = pd.read_csv(path,
                   sep=" ",
@@ -195,10 +191,6 @@ df1 = pd.read_csv(path,
                   delimiter=","
                   )
 
-
-# In[3]:
-
-
 #################### STEP 2: DATA CLEANUP - EXPLORE ####################
 # In order to understand how qualitative info can be switched to
 # quantitative info, I first want to know the unique values in each
@@ -209,16 +201,14 @@ education_count = df1['education'].value_counts()
 maritalstatus_count = df1['maritalstatus'].value_counts()
 occupation_count = df1['occupation'].value_counts()
 race_count = df1['race'].value_counts()
-print(workclass_count,
-      education_count,
-      maritalstatus_count,
-      occupation_count,
-      race_count
-      )
 
-
-# In[4]:
-
+# Uncomment to print unique values.
+#print(workclass_count,
+#      education_count,
+#      maritalstatus_count,
+#      occupation_count,
+#      race_count
+#      )
 
 # From this last print, I found out that there are 10 rows where there
 # are indivudals who are without pay or have not worked. Because our goal
@@ -252,10 +242,6 @@ df1.occupation = df1['occupation'].replace('[\?,]',
 #      df1['occupation'].value_counts()
 #     )
 
-
-# In[5]:
-
-
 ##### STEP 2 (CONT): TURN QUALITATIVE COLUMNS INTO MATRIX OF BINARIES ######
 
 # There are some columns with qualitative data that need to be turned into
@@ -272,11 +258,8 @@ for i in qualcol:
     df2 = pd.concat([df2, pd.get_dummies(df1[i], prefix=i)],
                     axis=1
                    )
-print(df2.columns)
-
-
-# In[6]:
-
+# Uncomment to print
+#print(df2.columns)
 
 ######################### STEP 2: FEATURE ENGINEERING ########################
 # Now that data has been properly cleaned and converted to numbers, I want to
@@ -285,10 +268,6 @@ print(df2.columns)
 # This is the label that we are trying to predict. More than 50K is 1.
 # Less than 50K is 0.
 labelDF = pd.DataFrame(columns=['salary_label'])
-
-
-# In[7]:
-
 
 ##### STEP 2(CONT): NORMALIZE DATA THAT HAVE RANGE OF NUMBERS #####
 norm_age = QualToQuant()
@@ -309,7 +288,7 @@ df2['norm_hoursperweek'] = norm_hoursperweek.normalizer(df1['hoursperweek'])
 norm_fnlwgtint = QualToQuant()
 df2['norm_fnlwgtint'] = norm_fnlwgtint.normalizer(df1['fnlwgt'])
 
-#### STEP 2(CONT): Change columns that have two values into 0 or 1 ####
+########## STEP 2(CONT): Change columns that have two values into 0 or 1 ##########
 gender_label = QualToQuant()
 df2['gender_label'] = gender_label.gender_labeler(df1['sex'])
 
@@ -321,11 +300,9 @@ df2['salary_label'] = salary_label.salary_labeler(df1['salaryrange'])
 # American-born, to simplify things.
 ogcountry_label = QualToQuant()
 df2['ogcountry_label'] = ogcountry_label.ogcountry_labeler(df1['ogcountry'])
-print(df2.head(0))
 
-
-# In[8]:
-
+# Uncomment to print
+#print(df2.head(0))
 
 # FeatDF contains all the original columns, and one-hot encoded columns, and
 # normalized datapoints. I wanted to rename df2 as featDF for easier memory.
@@ -347,10 +324,6 @@ completeDF = df1[['age',
                   'ogcountry',
                   'salaryrange'
                   ]]
-
-
-# In[9]:
-
 
 #################### STEP 4: EXPLORE DATA VISUALLY ####################
 edu_lvl_lbl = ['preschool',
@@ -436,10 +409,6 @@ ax.set_xlabel('Education Level')
 plt.xticks(rotation=25)
 ax.set_ylabel('Amount of People')
 
-
-# In[10]:
-
-
 # Pie chart to reveal education level distribution of total database.
 total_edulvl_dist = dict(df1['education'].value_counts())
 # print(total_edulvl_dist)
@@ -510,10 +479,6 @@ plt.axis('equal')
 plt.title('Education Distribution of <50K Individuals')
 plt.show()
 
-
-# In[11]:
-
-
 # Two scatter plots, one for <50K label and another for >50k label to
 # study the spread of age and hours worked per week. This could be
 # helpful for someone who wants to narrow down the model and fit it
@@ -568,10 +533,6 @@ sns.lmplot(x='age',
            scatter_kws={'alpha': 0.3}
            )
 
-
-# In[12]:
-
-
 # Creating a heatmap to visualize which numeric columns correlate
 # with salary label. # From the following printout, we see that
 # education number, age, hours per week, and capital gain are roughly
@@ -597,7 +558,7 @@ fig = sns.heatmap(corr,
                   yticklabels=corr.columns.values,
                   cbar=True,
                   linewidths=.5,
-                  annot_kws={"fontsize": 12},
+                  annot_kws={"fontsize":12},
                   ax=ax
                   )
 plt.xticks(rotation=16)
@@ -605,10 +566,6 @@ fig.set_ylim(6.5, 0)  # First value should be (#of rows) + (.5).
 fig.xaxis.set_tick_params(labelsize=10)
 fig.yaxis.set_tick_params(labelsize=10)
 plt.show()
-
-
-# In[13]:
-
 
 # However, the heatmap does not illuminate how qualitative features
 # differentially effect correlation with the salary label. Here,
@@ -620,7 +577,7 @@ featDF.describe()
 values_corr = featDF.corr()
 salary_corr = values_corr.iloc[-2]
 salary_corr = salary_corr.sort_values(ascending=False)
-print(salary_corr)
+#print(salary_corr)
 salary_corrdict = dict(salary_corr)
 
 salary_corr_filter = FilterGroups()
@@ -631,6 +588,9 @@ occupation_corrs = make_corr_groups[2]
 workclass_corrs = make_corr_groups[3]
 race_corrs = make_corr_groups[4]
 
+# Lines 591 to 640 set up the qualitative description & respective correlations
+# back within their original columns as dictionaries.
+# (i.e. 'maritalstatus' {key: wife, value: correlation weight})
 maristat_filter = FilterGroups()
 maristat_desc = maristat_filter.separate_onehot(maristat_corrs)
 
@@ -647,27 +607,27 @@ race_filter = FilterGroups()
 race_desc = race_filter.separate_onehot(race_corrs)
 
 # The following print gives colum description with correlation weight.
-print(maristat_corrs,
-      '\n', '\n',
-      relationship_corrs,
-      '\n', '\n',
-      occupation_corrs,
-      '\n', '\n',
-      workclass_corrs,
-      '\n', '\n',
-      race_corrs
-      )
+#print(maristat_corrs,
+#      '\n', '\n',
+#      relationship_corrs,
+#      '\n', '\n',
+#      occupation_corrs,
+#      '\n', '\n',
+#      workclass_corrs,
+#      '\n', '\n',
+#      race_corrs
+#      )
 
-print(maristat_desc,
-      '\n', '\n',
-      relationship_desc,
-      '\n', '\n',
-      occupation_desc,
-      '\n', '\n',
-      workclass_desc,
-      '\n', '\n',
-      race_desc
-      )
+#print(maristat_desc,
+#      '\n', '\n',
+#      relationship_desc,
+#      '\n', '\n',
+#      occupation_desc,
+#      '\n', '\n',
+#      workclass_desc,
+#      '\n', '\n',
+#      race_desc
+#      )
 
 data_qualcorrs = {'maritalstatus': list(maristat_corrs.values()),
                   'relationship': list(relationship_corrs.values()),
@@ -681,12 +641,8 @@ qualcol_corrgroup = pd.DataFrame.from_dict(data_qualcorrs,
 
 qualcol_corrgroupT = qualcol_corrgroup.T
 
-
-# In[14]:
-
-
-# Lineplot to reveal distribution of correlation weights.
-# Correlation assessment follows the general rule:
+# Lineplot to reveal distribution of correlation weights for each
+# qualitative dictionary. Correlation assessment follows the rule:
 # High correlation : +/- .50 <= x < 1.0
 # Moderate correlation: +/- .30 <= x <= .49
 # Low correlation: 0 < x <= +/- .29
@@ -800,22 +756,11 @@ plt.plot(x4, y4, 'o')
 plt.show()
 
 
-# In[ ]:
-
-
-############ STEP 5: K-NEAREST CLASSIFIER - BASELINE #############
-# Using the dataframe without any one-hot encoding applied as the
-# baseline for our model. Our model should not be below this test score.
-
-
-# In[17]:
-
-
-###################### STEP 5: K-NEAREST CLASSIFIER #####################
-
+###################### STEP 5: K-NEAREST CLASSIFIER ##########################
 # First, we must find the best K index that gives us the highest
 # accuracy. We previously created a class called NearestK that contains
 # the method to search for the best K value to use.
+
 featDF = featDF.drop(['salary_label'],
                      axis=1
                      )
@@ -836,11 +781,11 @@ knn_accuracy = list(knn_pairs.values())
 knn_percent = [round(i*100, 2) for i in knn_accuracy]
 max_accuracy = max(knn_percent)
 best_k = knn_k[knn_accuracy.index(max(knn_accuracy))]
-print('Best K is '
-      + str(best_k)
-      + ' at accuracy of '
-      + str(max_accuracy)
-      + '%')
+#print('Best K is '
+#      + str(best_k)
+#      + ' at accuracy of '
+#      + str(max_accuracy)
+#      + '%')
 
 # Let's graph the data and visualize how these accuracy rates look like,
 # and highlight the best K fit with a red dot.
@@ -857,21 +802,17 @@ plt.title('Above or Below 50K line?: best K values to predict salary')
 plt.legend(loc=4)
 plt.show()
 
-
-# In[24]:
-
-
 # Build classifier with the best K previously calculated,
 knn_classifier = KNeighborsClassifier(n_neighbors=best_k)
 knn_classifier.fit(trnk_data, np.ravel(trnk_lbl))
 
 # Score trained data results.
 trainknn_score = knn_classifier.score(trnk_data, trnk_lbl)
-print("Train score for KNN algorithm: {}".format(round(trainknn_score*100, 2)))
+#print("Train score for KNN algorithm: {}".format(round(trainknn_score*100, 2)))
 
 # Score test data results.
 testknn_score = knn_classifier.score(tstk_data, tstk_lbl)
-print("Test score for KNN algorithm: {}".format(round(testknn_score*100, 2)))
+#print("Test score for KNN algorithm: {}".format(round(testknn_score*100, 2)))
 
 # Now that we've trained the labeled data on this classifier, let's study
 # the precision, recall and F1 scores of this classifier to determine'
@@ -886,10 +827,7 @@ knn_scores.append(recallknn)
 knn_scores.append(f1knn)
 scorenames = ['precision', 'recall', 'F1']
 knn_score_names = list(zip(scorenames, knn_scores))
-print("Scores for KNN are: " + str(knn_score_names))
-
-
-# In[21]:
+#print("Scores for KNN are: " + str(knn_score_names))
 
 
 ################### STEP 6: DECISION FOREST CLASSIFIER ###################
@@ -909,20 +847,17 @@ forest_classifier.fit(trndfdata, trndflbl)
 
 # Score based on trained data.
 train_df_score = forest_classifier.score(trndfdata, trndflbl)
-print('Train Score:' + str(round(train_df_score*100, 2)))
+#print('Train Score:' + str(round(train_df_score*100, 2)))
 
 # Score based on test data.
 test_df_score = forest_classifier.score(tstdfdata, tstdflbl)
-print('Test Score:' + str(round(test_df_score*100, 2)))
-
-
-# In[20]:
+#print('Test Score:' + str(round(test_df_score*100, 2)))
 
 
 ################# STEP 7: LOGISTIC REGRESSION CLASSIFIER #################
-
 # Let's now train the data on logistic regression. Split up the dataset
 # between trained and tested data by making the test_size=0.2.
+
 trnlogdata, tstlogdata, trnloglbl, tstloglbl = train_test_split(featDF,
                                                                 labelDF,
                                                                 test_size=0.2)
@@ -939,15 +874,11 @@ log_reg_classifier.fit(trnlogdata, trnloglbl)
 
 # Score the model on the train data.
 train_logreg_model = log_reg_classifier.score(trnlogdata, trnloglbl)
-print('Train score is ' + str(round(train_logreg_model*100, 2)))
+#print('Train score is ' + str(round(train_logreg_model*100, 2)))
 
 # Score the model on the test data.
 test_logreg_model = log_reg_classifier.score(tstlogdata, tstloglbl)
-print('Test score is ' + str(round(test_logreg_model*100, 2)))
-
-
-# In[25]:
-
+#print('Test score is ' + str(round(test_logreg_model*100, 2)))
 
 # Must pair this with the column names from featuresDF
 important_coefficients = forest_classifier.feature_importances_
@@ -956,15 +887,11 @@ importantcoef_columns = dict(zip(feature_columns, important_coefficients))
 importantcoef_series = pd.Series(importantcoef_columns)
 importantcoef_series = importantcoef_series.sort_values(ascending=False)
 importantcoef_columns = dict(importantcoef_series)
-print(importantcoef_series)
-print(len(importantcoef_series))
+#print(importantcoef_series)
+#print(len(importantcoef_series))
 corr_filter = FilterGroups()
 df_corrs = corr_filter.make_corr_groups(importantcoef_columns)
-# print(df_corrs)
-
-
-# In[ ]:
-
+#print(df_corrs)
 
 
 
