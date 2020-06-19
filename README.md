@@ -91,7 +91,7 @@ The next logical step was to combine how both age and hours per week worked can 
 
 
 
-## Algorithms and Results <a name="aglorithms"></a>
+## Algorithms and Results <a name="algorithms"></a>
 <ol>
     <li><a href="https://en.wikipedia.org/wiki/K-nearest_neighbors_algorithm">K Nearest Classifier</a>
         <ul>
