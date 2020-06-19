@@ -114,7 +114,7 @@ The next logical step was to combine how both age and hours per week worked can 
 <ol>
     <li><a href="https://en.wikipedia.org/wiki/K-nearest_neighbors_algorithm">K Nearest Classifier</a>
         <ul>
-             <li> We found that 13 was the best K for our dataset to use for the K Nearest Neighbors Algorithm.
+             <li> We found that 36 was the best K for our dataset to use for the K Nearest Neighbors Algorithm.
               <img src="census1994_images/bestK_lineplot.png" width="250">
              </li>
          <li> Train score = 84.07%
