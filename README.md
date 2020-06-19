@@ -1,23 +1,23 @@
 # Census-Data: Predicting Salary Range
 
-# Table of contents
+## Motivation <a name="motivation"></a>
+The goal of this supervised machine learning algorithm is to decide which socioeconomic factors will reliably predict whether an individual makes less than or more than $50,000 yearly. The dataset being used is found on UCI’s machine learning repository and was collected in 1994.
 
+For context, $50,000 in 1994 is the rough equivalent of $87,000 in 2020. Calculations made on this 
+<a href="https://www.in2013dollars.com/us/inflation/1994?amount=50000">website</a>.
+
+# Table of contents
 1. [What to Expect](#expect)
 2. [Code Style](#codestyle)
 3. [Package Manager](#package)
 4. [IDE](#ide)
-5. [Dataset Details](#dataset)
+5. [Dataset Download](#dataset)
 6. [Feature Engineering](#feature)
 7. [Preprocessing Visualization](#preprocessing)
 8. [Algorithms and Results](#algorithms)
 9. [Troubleshooting](#troubleshooting)
 10. [License](#license)
 
-## Motivation <a name="motivation"></a>
-The goal of this supervised machine learning algorithm is to decide which socioeconomic factors will reliably predict whether an individual makes less than or more than $50,000 yearly. The dataset being used is found on UCI’s machine learning repository and was collected in 1994.
-
-For context, $50,000 in 1994 is the rough equivalent of $87,000 in 2020. Calculations made on this 
-<a href="https://www.in2013dollars.com/us/inflation/1994?amount=50000">website</a>.
 
 ## What to Expect <a name="expect"></a>
 I have compiled each phase of building the algorithm, from preprocessing to analysis, into this one file:
@@ -41,7 +41,7 @@ I have compiled each phase of building the algorithm, from preprocessing to anal
 ## IDE <a name="ide"></a>
 <a href="https://jupyter.org/about">Jupyter Notebook</a>, which is downloaded when Anaconda is downloaded.
 
-## Dataset Details <a name="dataset"></a>
+## Dataset Download <a name="dataset"></a>
 <a href="https://archive.ics.uci.edu/ml/datasets/census+income">UCI Machine Learning Repository</a>
 
 ## Feature Engineering <a name="feature"></a>
