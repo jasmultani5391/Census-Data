@@ -14,9 +14,11 @@ For context, $50,000 in 1994 is the rough equivalent of $87,000 in 2020. Calcula
 5. [Dataset Download](#dataset)
 6. [Feature Engineering](#feature)
 7. [Preprocessing Visualization](#preprocessing)
- - [Correlations](#corr)
- - [Education and Age Distribution](#eduage)
- - [Hours/week Distribution](#hrs)
+<ul style="list-style-type:disc">
+         <li>[Correlations](#corr)</li>
+         <li>[Education and Age Distribution](#eduage)</li>
+ <li>[Hours/week Distribution](#hrs)</li>
+ </ul>
 8. [Algorithms and Results](#algorithms)
 9. [Troubleshooting](#troubleshooting)
 10. [License](#license)
