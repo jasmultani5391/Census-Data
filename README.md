@@ -1,12 +1,25 @@
 # Census-Data: Predicting Salary Range
 
-## Motivation
+# Table of contents
+
+1. [What to Expect](#expect)
+2. [Code Style](#codestyle)
+3. [Package Manager](#package)
+4. [IDE](#ide)
+5. [Dataset Details](#dataset)
+6. [Feature Engineering](#feature)
+7. [Preprocessing Visualization](#preprocessing)
+8. [Algorithms and Results](#algorithms)
+9. [Troubleshooting](#troubleshooting)
+10. [License](#license)
+
+## Motivation <a name="motivation"></a>
 The goal of this supervised machine learning algorithm is to decide which socioeconomic factors will reliably predict whether an individual makes less than or more than $50,000 yearly. The dataset being used is found on UCI’s machine learning repository and was collected in 1994.
 
 For context, $50,000 in 1994 is the rough equivalent of $87,000 in 2020. Calculations made on this 
 <a href="https://www.in2013dollars.com/us/inflation/1994?amount=50000">website</a>.
 
-## What to expect when opening the file
+## What to Expect <a name="expect"></a>
 I have compiled each phase of building the algorithm, from preprocessing to analysis, into this one file:
 
  <ul style="list-style-type:disc">
@@ -19,19 +32,19 @@ I have compiled each phase of building the algorithm, from preprocessing to anal
          <li><b>Step 7:</b> Training labeled data on Logistic Regression Classifier</li>
       </ul>
       
-## Code Style
+## Code Style <a name="codestyle"></a>
 <a href="https://docs.python.org/3.7/contents.html">Python version 3.7.4.</a>
 
-## Package manager
+## Package manager <a name="package"></a>
 <a href="https://repo.anaconda.com/">Anaconda</a> with the following <a href="https://www.youtube.com/watch?v=5mDYijMfSzs&t=255s">download tutorial.</a>
 
-## IDE
+## IDE <a name="ide"></a>
 <a href="https://jupyter.org/about">Jupyter Notebook</a>, which is downloaded when Anaconda is downloaded.
 
-## Dataset downloaded from
+## Dataset Details <a name="dataset"></a>
 <a href="https://archive.ics.uci.edu/ml/datasets/census+income">UCI Machine Learning Repository</a>
 
-## Feature engineering from dataset
+## Feature Engineering <a name="feature"></a>
 <ul style="list-style-type:disc">
          <li>Age</li>
          <li>Workclass</li>
@@ -49,7 +62,7 @@ I have compiled each phase of building the algorithm, from preprocessing to anal
          <li>Salary Label</li>
       </ul>
 
-## Preprocessing Visualization
+## Preprocessing Visualization <a name="preprocessing"></a>
 From the initial correlation heatmap below, we understand that "educationnum" has the highest correlation with the salary label amongst the given features. We should be mindful that the absolute value of this correlation (.33) isn't so convincing that we'll find a strong correlation. For now, we should rely on "educationnum" as the guiding feature for our initial visualization. 
 
 ![](census1994_images/initial_corr_heat.png)
@@ -78,7 +91,7 @@ The next logical step was to combine how both age and hours per week worked can 
 
 
 
-## Algorithms
+## Algorithms and Results <a name="aglorithms"></a>
 <ol>
     <li><a href="https://en.wikipedia.org/wiki/K-nearest_neighbors_algorithm">K Nearest Classifier</a>
         <ul>
@@ -106,12 +119,12 @@ The next logical step was to combine how both age and hours per week worked can 
      </li>
 </ol>
 
-## Troubleshooting
+## Troubleshooting <a name="troubleshooting"></a>
 
 For the future:
 <ul style="list-style-type:disc">
  <li> I would like to use the same training algorithm and run it across varying cities using the 2020 census. I'd be curious to see how feature weights could vary across major cities, and eventually see whether there's variance between the 1994 and 2020 census. I'd also want to change the question of how much a household makes, to intead explore how the US Census affects local funding (i.e. any differences in school funding from block-to-block. </li>
 
-## License
+## License <a name="license"></a>
 MIT
       
