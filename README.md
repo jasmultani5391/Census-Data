@@ -86,18 +86,22 @@ The next logical step was to combine how both age and hours per week worked can 
               <img src="census1994_images/bestK_lineplot.png" width="200">
              </li>
          <li> Train score = 84.07%
-          <li> Test score = 83.51
+          <li> Test score = 83.51%
          </li>
         </ul>
     </li>
     <li><a href="https://en.wikipedia.org/wiki/Random_forest">Decision Forest Classifier</a>
         <ul> 
-         <li> Accuracy score = 83.60% </li>
+         <li> Train score = 98.71% 
+          <li> Test score = 84.03%
+         </li>
         </ul>
     </li>
     <li><a href="https://en.wikipedia.org/wiki/Logistic_regression">Logistic Regression Classifier</a>
         <ul>
-         <li> Accuracy score = 84.00%</li>
+         <li> Train score = 85.41%
+          <li> Test score = 85.14%
+         </li>
         </ul>
      </li>
 </ol>
@@ -106,9 +110,7 @@ The next logical step was to combine how both age and hours per week worked can 
 
 For the future:
 <ul style="list-style-type:disc">
- <li> I would like to use the same training algorithm and run it across varying cities using the 2020 census. I'd be curious to see how feature weights could vary across major cities, and eventually see whether there's variance between the 1994 and 2020 census. </li>
- <li> From the 1994 census, I want to vary the types of features included within the algorithm. I would like to better discern which features end up being "redundant" to aid in the final decision. It also makes me suspicious that my accuracy scores for each of the algorithms are so close together.  </li>
-</ul>
+ <li> I would like to use the same training algorithm and run it across varying cities using the 2020 census. I'd be curious to see how feature weights could vary across major cities, and eventually see whether there's variance between the 1994 and 2020 census. I'd also want to change the question of how much a household makes, to intead explore how the US Census affects local funding (i.e. any differences in school funding from block-to-block. </li>
 
 ## License
 MIT
