@@ -95,8 +95,8 @@ The next logical step was to combine how both age and hours per week worked can 
 <ol>
     <li><a href="https://en.wikipedia.org/wiki/K-nearest_neighbors_algorithm">K Nearest Classifier</a>
         <ul>
-             <li> We found that 13 was the best K for our dataset to use for the K Nearest Neighbors Algorithm. 
-              <img src="census1994_images/bestK_lineplot.png" width="200">
+             <li> We found that 13 was the best K for our dataset to use for the K Nearest Neighbors Algorithm.
+              <img src="census1994_images/bestK_lineplot.png" width="250">
              </li>
          <li> Train score = 84.07%
           <li> Test score = 83.51%
@@ -123,7 +123,7 @@ The next logical step was to combine how both age and hours per week worked can 
 
 For the future:
 <ul style="list-style-type:disc">
- <li> I would like to use the same training algorithm and run it across varying cities using the 2020 census. I'd be curious to see how feature weights could vary across major cities, and eventually see whether there's variance between the 1994 and 2020 census. I'd also want to change the question of how much a household makes, to intead explore how the US Census affects local funding (i.e. any differences in school funding from block-to-block.
+ <li> I would like to use the same training algorithm and run it across varying cities using the 2020 census. I'd be curious to see how feature weights could vary across major cities, and eventually see whether there's variance between the 1994 and 2020 census. I'd also want to change the question of how much a household makes, to intead explore how the US Census affects local funding (i.e. any differences in school funding from block-to-block.)
  </li>
  </ul>
 
