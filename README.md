@@ -14,6 +14,9 @@ For context, $50,000 in 1994 is the rough equivalent of $87,000 in 2020. Calcula
 5. [Dataset Download](#dataset)
 6. [Feature Engineering](#feature)
 7. [Preprocessing Visualization](#preprocessing)
+ - [Correlations](#corr)
+ - [Education and Age Distribution](#eduage)
+ - [Hours/week Distribution](#hrs)
 8. [Algorithms and Results](#algorithms)
 9. [Troubleshooting](#troubleshooting)
 10. [License](#license)
@@ -63,9 +66,23 @@ I have compiled each phase of building the algorithm, from preprocessing to anal
       </ul>
 
 ## Preprocessing Visualization <a name="preprocessing"></a>
+
+### Correlations <a name="corr"></a>
 From the initial correlation heatmap below, we understand that "educationnum" has the highest correlation with the salary label amongst the given features. We should be mindful that the absolute value of this correlation (.33) isn't so convincing that we'll find a strong correlation. For now, we should rely on "educationnum" as the guiding feature for our initial visualization. 
 
 ![](census1994_images/initial_corr_heat.png)
+
+From here, we took a closer look at how correlation varies within a description. For example, if two individuals overlap in major factors (i.e. education, workclass, and hours per week are the same), could there still be a discrepancy if one person is a spouse, while the other lives alone. I broke it down by race, marital status, workclass, and relationship below.
+
+![](census1994_images/corr_race.png)
+
+![](census1994_images/corr_maritalstatus.png)
+
+![](census1994_images/corr_workclass.png)
+
+![](census1994_images/corr_relationship.png)
+
+### Education and Age Distribution <a name="eduage"></a>
 
 With these next two pie graphs, we can better understand the relative distribution of education level contributing to the overall database.
 
@@ -84,6 +101,8 @@ The following scatterplot reveals that a general cutoff of education level to ma
 The initial correlation heatmap reveals that age is the next strongest feature, after education level, to predict salary label. As expected, younger kids who are in their teens are likely to make less than 50K. Could be due to education level, or the amount of hours they're legally allowed to commit to.
 
 ![](census1994_images/Age_vs_Salary_scatter.png)
+
+### Hours/Week Distributions  <a name="hrs"></a>
 
 The next logical step was to combine how both age and hours per week worked can predict the salary label. It's interesting to see how a person can work an upwards of 60+ hours per week and not make it to the >50k yearly salary. In the other group, it looks like the horus are clustered between 35 and 65 hours per week. This could indicate that we eventually need a closer look into the occuption sector for each group.
 
