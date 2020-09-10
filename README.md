@@ -72,7 +72,7 @@ From the initial correlation heatmap below, we understand that "educationnum" ha
 
 From here, we took a closer look at how correlation varies within a description. For example, if two individuals overlap in major factors (i.e. education, workclass, and hours per week are the same), could there still be a discrepancy if one person is a spouse, while the other lives alone. I broke it down by race, marital status, workclass, and relationship below.
 
-![](census1994_images/corr_race.png)
+![](images_folder/heatmap.png)
 
 
 ### Education and Age Distribution <a name="eduage"></a>
