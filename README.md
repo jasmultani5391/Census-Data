@@ -44,7 +44,7 @@ In addition to the dataframes saved and uploaded as csv files, I have compiled e
 <a href="https://jupyter.org/about">Jupyter Notebook</a>, which is downloaded when Anaconda is downloaded.
 
 ## Dataset Download <a name="dataset"></a>
-<a href="https://archive.ics.uci.edu/ml/datasets/census+income">UCI Machine Learning Repository. </a> Raw data is also uploaded as csv file above. Cleaned up versios are found as completeDF.csv, and normalized, scalar version of data is found in featDF.csv.
+<a href="https://archive.ics.uci.edu/ml/datasets/census+income">UCI Machine Learning Repository. </a> Raw data is also uploaded as csv file above. Cleaned up versions are found as completeDF.csv, and normalized, scalar version of data is found in featDF.csv.
 
 ## Feature Engineering <a name="feature"></a>
 <ul style="list-style-type:disc">
@@ -79,11 +79,9 @@ From here, we took a closer look at how correlation varies within a description.
 
 With these next two pie graphs, we can better understand the relative distribution of education level contributing to the overall database.
 
-![](census1994_images/edulvl_total_pie.png)
-
 ### Hours/Week Distributions  <a name="hrs"></a>
 
-The next logical step was to combine how both age and hours per week worked can predict the salary label. It's interesting to see how a person can work an upwards of 60+ hours per week and not make it to the >50k yearly salary. In the other group, it looks like the horus are clustered between 35 and 65 hours per week. This could indicate that we eventually need a closer look into the occuption sector for each group.
+The next logical step was to combine how both age and hours per week worked can predict the salary label. It's interesting to see how a person can work an upwards of 60+ hours per week and not make it to the >50k yearly salary. In the other group, it looks like the hours are clustered between 35 and 65 hours per week. This could indicate that we eventually need a closer look into the occuption sector for each group.
 
 
 ## Algorithms and Results <a name="algorithms"></a>
