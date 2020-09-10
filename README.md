@@ -26,7 +26,7 @@ For context, $50,000 in 1994 is the rough equivalent of $87,000 in 2020. Calcula
 In addition to the dataframes saved and uploaded as csv files, I have compiled each phase of building the algorithm, from preprocessing to model evaluation, across the following files:
 
  <ul style="list-style-type:disc">
- <li><b>File:</b> Data introduction + cleanup + feature engineering</li>
+ <li><b>File 1:</b> Data introduction + cleanup + feature engineering</li>
          <li><b>File 2:</b> Data exploration</li>
          <li><b>File 3:</b> Images from data exploration</li>
          <li><b>File 4:</b> Training labeled data on K Nearest Classifier</li>
