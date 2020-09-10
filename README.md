@@ -44,7 +44,7 @@ In addition to the dataframes saved and uploaded as csv files, I have compiled e
 <a href="https://jupyter.org/about">Jupyter Notebook</a>, which is downloaded when Anaconda is downloaded.
 
 ## Dataset Download <a name="dataset"></a>
-<a href="https://archive.ics.uci.edu/ml/datasets/census+income">UCI Machine Learning Repository. Raw data is also uploaded as csv file above. Cleaned up versios are found as completeDF.csv, and normalized, scalar version of data is found in featDF.csv. </a>
+<a href="https://archive.ics.uci.edu/ml/datasets/census+income">UCI Machine Learning Repository. </a> Raw data is also uploaded as csv file above. Cleaned up versios are found as completeDF.csv, and normalized, scalar version of data is found in featDF.csv.
 
 ## Feature Engineering <a name="feature"></a>
 <ul style="list-style-type:disc">
