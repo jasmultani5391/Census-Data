@@ -23,16 +23,15 @@ For context, $50,000 in 1994 is the rough equivalent of $87,000 in 2020. Calcula
 
 
 ## What to Expect <a name="expect"></a>
-I have compiled each phase of building the algorithm, from preprocessing to analysis, into this one file:
+In addition to the dataframes saved and uploaded as csv files, I have compiled each phase of building the algorithm, from preprocessing to model evaluation, across the following files:
 
  <ul style="list-style-type:disc">
- <li><b>Step 1:</b> Data introduction</li>
-         <li><b>Step 2:</b> Data clean-up</li>
-         <li><b>Step 3:</b> Creating dataframes by varying features</li>
-         <li><b>Step 4:</b> Exploring data visually</li>
-         <li><b>Step 5:</b> Training labeled data on K Nearest Classifier</li>
-         <li><b>Step 6:</b> Training labeled data on Decision Forest Classifier</li>
-         <li><b>Step 7:</b> Training labeled data on Logistic Regression Classifier</li>
+ <li><b>File:</b> Data introduction + cleanup + feature engineering</li>
+         <li><b>File 2:</b> Data exploration</li>
+         <li><b>File 3:</b> Images from data exploration</li>
+         <li><b>File 4:</b> Training labeled data on K Nearest Classifier</li>
+         <li><b>File 5:</b> Training labeled data on Decision Forest Classifier</li>
+         <li><b>File 6:</b> Training labeled data on Logistic Regression Classifier</li>
       </ul>
       
 ## Code Style <a name="codestyle"></a>
@@ -45,7 +44,7 @@ I have compiled each phase of building the algorithm, from preprocessing to anal
 <a href="https://jupyter.org/about">Jupyter Notebook</a>, which is downloaded when Anaconda is downloaded.
 
 ## Dataset Download <a name="dataset"></a>
-<a href="https://archive.ics.uci.edu/ml/datasets/census+income">UCI Machine Learning Repository</a>
+<a href="https://archive.ics.uci.edu/ml/datasets/census+income">UCI Machine Learning Repository. Raw data is also uploaded as csv file above. Cleaned up versios are found as completeDF.csv, and normalized, scalar version of data is found in featDF.csv. </a>
 
 ## Feature Engineering <a name="feature"></a>
 <ul style="list-style-type:disc">
@@ -70,17 +69,11 @@ I have compiled each phase of building the algorithm, from preprocessing to anal
 ### Correlations <a name="corr"></a>
 From the initial correlation heatmap below, we understand that "educationnum" has the highest correlation with the salary label amongst the given features. We should be mindful that the absolute value of this correlation (.33) isn't so convincing that we'll find a strong correlation. For now, we should rely on "educationnum" as the guiding feature for our initial visualization. 
 
-![](census1994_images/initial_corr_heat.png)
 
 From here, we took a closer look at how correlation varies within a description. For example, if two individuals overlap in major factors (i.e. education, workclass, and hours per week are the same), could there still be a discrepancy if one person is a spouse, while the other lives alone. I broke it down by race, marital status, workclass, and relationship below.
 
 ![](census1994_images/corr_race.png)
 
-![](census1994_images/corr_maritalstatus.png)
-
-![](census1994_images/corr_workclass.png)
-
-![](census1994_images/corr_relationship.png)
 
 ### Education and Age Distribution <a name="eduage"></a>
 
@@ -88,26 +81,9 @@ With these next two pie graphs, we can better understand the relative distributi
 
 ![](census1994_images/edulvl_total_pie.png)
 
-Since we'll be using the salary range as our label, we have to split up our knowledge based on who makes above 50k (our '1' label) and who makes below 50k ('0' label). To better understand how education level can effect salary prediction, I created the next two pie charts: (1) education level of people who make ABOVE 50k, (2) education level of people who make BELOW 50K salary. At first glance, we see that those who fall in the "bachelor's", "high school grads", and "some college" dominate the pool of the census that make above 50K.
-
-![](census1994_images/edulvl_abvsalary_pie.png)
-
-![](census1994_images/edulvl_blwsalary_pie.png)
-
-The following scatterplot reveals that a general cutoff of education level to make above 50K is those who pass the 12th grade (or "8" as seen on the graph's y-axis). Breakdown of the education level from quantitative to qualitiative is also as follows: 1 - preschool, 2 - 1st-4th, 3 - 5th-6th, 4 - 7th-8th, 5 - 9th, 6 - 10th, 7 - 11th, 8 - 12th, 9 - HS grad, 10 - Some-college, 11 - Associates-vocational, 12 - Assoc-academic, 13 - Bachelors, 14 - Masters, 15 - Professional school, 16 - Doctorate. 
-
-![](census1994_images/educationnum_vs_age_vs_salary_scatterI.png)
-
-The initial correlation heatmap reveals that age is the next strongest feature, after education level, to predict salary label. As expected, younger kids who are in their teens are likely to make less than 50K. Could be due to education level, or the amount of hours they're legally allowed to commit to.
-
-![](census1994_images/Age_vs_Salary_scatter.png)
-
 ### Hours/Week Distributions  <a name="hrs"></a>
 
 The next logical step was to combine how both age and hours per week worked can predict the salary label. It's interesting to see how a person can work an upwards of 60+ hours per week and not make it to the >50k yearly salary. In the other group, it looks like the horus are clustered between 35 and 65 hours per week. This could indicate that we eventually need a closer look into the occuption sector for each group.
-
-![](census1994_images/Hrs_vs_Salary_scatterII.png)
-
 
 
 ## Algorithms and Results <a name="algorithms"></a>
