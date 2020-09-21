@@ -84,9 +84,13 @@ From here, we took a closer look at how correlation varies within a description.
 
 ### Education and Age Distribution <a name="eduage"></a>
 
-With these next two pie graphs, we can better understand the relative distribution of education level contributing to the overall database.
+With these next two bar graphs, we can better understand the relative distribution of education level contributing to the overall database.
 
 ![](images_folder/agecount_eachgroup.png)
+
+The general curve for age count in the <50K group resembles the total count, whereas we see the mean of the >50K shift towards the right. We also notice a larger volume of people in the >50K than in the <50K group.
+
+
 ![](images_folder/educationcount_eachgroup.png)
 
 ### Hours/Week Distributions  <a name="hrs"></a>
