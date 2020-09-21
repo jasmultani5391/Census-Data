@@ -74,15 +74,29 @@ From here, we took a closer look at how correlation varies within a description.
 
 ![](images_folder/heatmap.png)
 
+![](images_folder/maritalstatus_corr.png)
+![](images_folder/occupation_corr.png)
+![](images_folder/race_corr.png)
+![](images_folder/workclass_corr.png)
+![](images_folder/relationship_corr.png)
+
+
 
 ### Education and Age Distribution <a name="eduage"></a>
 
 With these next two pie graphs, we can better understand the relative distribution of education level contributing to the overall database.
 
+![](images_folder/agecount_eachgroup.png)
+![](images_folder/educationcount_eachgroup.png)
+
 ### Hours/Week Distributions  <a name="hrs"></a>
 
 The next logical step was to combine how both age and hours per week worked can predict the salary label. It's interesting to see how a person can work an upwards of 60+ hours per week and not make it to the >50k yearly salary. In the other group, it looks like the hours are clustered between 35 and 65 hours per week. This could indicate that we eventually need a closer look into the occuption sector for each group.
 
+
+![](images_folder/scatter_salaryagecapgain.png)
+![](images_folder/scatter_salaryageeducation.png)
+![](images_folder/scatter_salaryagehours.png)
 
 ## Algorithms and Results <a name="algorithms"></a>
 <ol>
@@ -93,23 +107,6 @@ The next logical step was to combine how both age and hours per week worked can 
              </li>
          <li> Train score = 84.07%
           <li> Test score = 83.51%
-         </li>
-        </ul>
-    </li>
-    <li><a href="https://en.wikipedia.org/wiki/Random_forest">Decision Forest Classifier</a>
-        <ul> 
-         <li> Train score = 98.71% 
-          <li> Test score = 84.03%
-         </li>
-        </ul>
-    </li>
-    <li><a href="https://en.wikipedia.org/wiki/Logistic_regression">Logistic Regression Classifier</a>
-        <ul>
-         <li> Train score = 85.41%
-          <li> Test score = 85.14%
-         </li>
-        </ul>
-     </li>
 </ol>
 
 ## Troubleshooting <a name="troubleshooting"></a>
